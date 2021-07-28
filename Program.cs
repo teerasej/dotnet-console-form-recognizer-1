@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -21,17 +21,12 @@ namespace form_recognizer_1
 
         private static readonly string modelId = "9d88b61d-5bdc-429c-9998-cd0f4aef50e1";
 
-        private static FormRecognizerClient AuthenticateClient()
-        {
-            var client = new FormRecognizerClient(new Uri(endpoint), credential);
-            return client;
-        }
 
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
-            var analyzerClient = AuthenticateClient();
+            var analyzerClient = new FormRecognizerClient(new Uri(endpoint), credential);
 
             var businessCardAnalyzer = AnalyzeBusinessCard(client: analyzerClient, assetUrl: businessCardUrl);
             Task.WaitAll(businessCardAnalyzer);
