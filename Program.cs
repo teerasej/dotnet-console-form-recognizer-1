@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -20,7 +20,7 @@ namespace form_recognizer_1
 
         private static FormRecognizerClient AuthenticateClient()
         {
-            var client= new FormRecognizerClient(new Uri(endpoint),credential);
+            var client = new FormRecognizerClient(new Uri(endpoint), credential);
             return client;
         }
 
