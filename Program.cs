@@ -28,8 +28,9 @@ namespace form_recognizer_1
         {
             Console.WriteLine("Hello World!");
 
+            var analyzerClient = AuthenticateClient();
 
-            var businessCardAnalyzer = AnalyzeBusinessCard(client: AuthenticateClient(), assetUrl: businessCardUrl);
+            var businessCardAnalyzer = AnalyzeBusinessCard(client: analyzerClient, assetUrl: businessCardUrl);
             Task.WaitAll(businessCardAnalyzer);
         }
 
