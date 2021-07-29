@@ -40,37 +40,37 @@ namespace form_recognizer_1
 
         private static async Task AnalyzePdfForm(FormRecognizerClient recognizerClient, String modelId, string formUrl)
         {
-            RecognizedFormCollection forms;
+            // RecognizedFormCollection forms;
 
-            foreach (RecognizedForm form in forms)
-            {
-                Console.WriteLine($"Form of type: {form.FormType}");
-                foreach (FormField field in form.Fields.Values)
-                {
-                    Console.WriteLine($"Field '{field.Name}: ");
+            // foreach (RecognizedForm form in forms)
+            // {
+            //     Console.WriteLine($"Form of type: {form.FormType}");
+            //     foreach (FormField field in form.Fields.Values)
+            //     {
+            //         Console.WriteLine($"Field '{field.Name}: ");
 
-                    if (field.LabelData != null)
-                    {
-                        Console.WriteLine($"    Label: '{field.LabelData.Text}");
-                    }
+            //         if (field.LabelData != null)
+            //         {
+            //             Console.WriteLine($"    Label: '{field.LabelData.Text}");
+            //         }
 
-                    Console.WriteLine($"    Value: '{field.ValueData.Text}");
-                    Console.WriteLine($"    Confidence: '{field.Confidence}");
-                }
-                Console.WriteLine("Table data:");
-                foreach (FormPage page in form.Pages)
-                {
-                    for (int i = 0; i < page.Tables.Count; i++)
-                    {
-                        FormTable table = page.Tables[i];
-                        Console.WriteLine($"Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
-                        foreach (FormTableCell cell in table.Cells)
-                        {
-                            Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) contains {(cell.IsHeader ? "header" : "text")}: '{cell.Text}'");
-                        }
-                    }
-                }
-            }
+            //         Console.WriteLine($"    Value: '{field.ValueData.Text}");
+            //         Console.WriteLine($"    Confidence: '{field.Confidence}");
+            //     }
+            //     Console.WriteLine("Table data:");
+            //     foreach (FormPage page in form.Pages)
+            //     {
+            //         for (int i = 0; i < page.Tables.Count; i++)
+            //         {
+            //             FormTable table = page.Tables[i];
+            //             Console.WriteLine($"Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+            //             foreach (FormTableCell cell in table.Cells)
+            //             {
+            //                 Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) contains {(cell.IsHeader ? "header" : "text")}: '{cell.Text}'");
+            //             }
+            //         }
+            //     }
+            // }
         }
 
         private static void AnalyzRemainingFields(RecognizedForm businessCard)
